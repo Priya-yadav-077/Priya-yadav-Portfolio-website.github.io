@@ -1,273 +1,297 @@
-<!DOCTYPE HTML>
-<!--
-	Parallelism by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Portfolio Website</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Priya Yadav — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F6F3;
+    --ink: #14213D;
+    --ink-soft: #3A4A6B;
+    --text: #2B2D33;
+    --text-dim: #5B5E66;
+    --brass: #9C6B2E;
+    --rule: #D8D9D4;
+    --panel: #101A30;
+    --panel-text: #E8E9E4;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #15171C;
+      --ink: #E7E9F2;
+      --ink-soft: #B7BEDB;
+      --text: #DADCE1;
+      --text-dim: #9A9DA6;
+      --brass: #D2A15C;
+      --rule: #33353C;
+      --panel: #0B0F17;
+      --panel-text: #E8E9E4;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15171C;
+    --ink: #E7E9F2;
+    --ink-soft: #B7BEDB;
+    --text: #DADCE1;
+    --text-dim: #9A9DA6;
+    --brass: #D2A15C;
+    --rule: #33353C;
+    --panel: #0B0F17;
+    --panel-text: #E8E9E4;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--ink);
+    margin: 0;
+  }
+  a { color: var(--brass); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+  .narrow { max-width: 720px; }
 
-				<!-- Main -->
-					<section id="main">
+  /* Header */
+  header.site {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  header.site .wrap { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+  header.site .mark { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1.15rem; color: var(--ink); }
+  nav.site-links { display: flex; gap: 22px; font-size: 0.92rem; }
+  nav.site-links a { color: var(--text-dim); }
 
-						<!-- Items -->
-							<div class="items">
+  /* Hero */
+  .hero { padding: 64px 0 56px; }
+  .hero-grid { max-width: 640px; }
+  .hero h1 {
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    font-weight: 600;
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+  }
+  .hero .role {
+    margin-top: 16px;
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    max-width: 46ch;
+  }
+  .hero .cta-row { margin-top: 22px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.95rem; }
 
-								<div class="item intro span-2">
-									<h1>Priya Yadav</h1>
-									<p>Transforming Data into Insights, Insights into Action</p>
-								</div>
+  .ledger {
+    background: var(--panel);
+    color: var(--panel-text);
+    border-radius: 3px;
+    padding: 26px 26px;
+  }
+  .ledger .cap { font-size: 0.82rem; color: #A9ADBE; margin-bottom: 14px; }
+  .ledger-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+    font-size: 0.93rem;
+  }
+  .ledger-row:last-child { border-bottom: none; }
+  .ledger-row .what { color: #C9CCDA; }
+  .ledger-row .stat { font-weight: 600; color: #EFE3CE; white-space: nowrap; text-align: right; }
 
-								<article class="item thumb span-2">
-									<h2>
-										<a href="https://github.com/Priya-yadav-077/Cold-Email-Generator-Gen-AI.git" target="_blank">
-											Cold Email Generator-Gen AI (Langchain,Chromadb,Streamlit)
-										</a>
-									</h2>
-									<a href="images/thumbs/pb pro.png" class="image">
-										<img src="images\thumbs\ssg.png" alt="Cold Email Generator-Gen AI">
-									</a>
-								</article>
+  /* Sections */
+  section { padding: 44px 0; border-top: 1px solid var(--rule); }
+  section .heading { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 26px; flex-wrap: wrap; gap: 8px; }
+  section .heading h2 { font-size: 1.5rem; font-weight: 600; }
+  section .heading .note { color: var(--text-dim); font-size: 0.92rem; }
 
-								<article class="item thumb span-2">
-									<h2><a href="https://github.com/Priya-yadav-077/Bank-marketing-prediction.git" target="_blank">
-										Customer Churn Prediction (ML - Python)
-									</a>
-									</h2>
-									<a href="images/thumbs/Screenshot 2025-02-09 161758.png" class="image"><img src="images/thumbs/Screenshot 2025-02-09 161758.png" alt=""></a>
-								</article>
+  .case {
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 28px;
+  }
+  .case:last-child { border-bottom: none; }
+  @media (max-width: 700px) {
+    .case { grid-template-columns: 1fr; gap: 10px; }
+  }
+  .case .title { font-family: 'Source Serif 4', serif; font-size: 1.15rem; color: var(--ink); font-weight: 600; line-height: 1.3; }
+  .case .stack { margin-top: 10px; font-size: 0.85rem; color: var(--text-dim); }
+  .case .body p { margin: 0 0 10px; max-width: 62ch; }
+  .case .body p:last-child { margin-bottom: 0; }
+  .case .body .label { color: var(--ink-soft); font-weight: 600; }
+  .case .links { margin-top: 10px; font-size: 0.9rem; }
 
-								<article class="item thumb span-1">
-									<h2><a href="https://github.com/Priya-yadav-077/Customized-Face-generated.git" target="_blank">
-										Customized Face Generation using GAN algorithm (Deep Learning Python)
-									</a>
-									</h2>
-									<a href="images/thumbs/Screenshot 2025-02-09 161856.png" class="image"><img src="images/thumbs/Screenshot 2025-02-09 161856.png" alt=""></a>
-								</article>
-								
-								
-								<article class="item thumb span-1">
-									<h2>
-										<a href=" https://github.com/Priya-yadav-077/Data-cleaning-and-Exploratory-data-analysis.git" target="blank">
-										SQL Data Cleaning & EDA (SQL)
-										</a>	
-									</h2>
-									<a href="images/thumbs/Screenshot 2025-02-09 161627.png" class="image"><img src="images/thumbs/Screenshot 2025-02-09 161627.png" alt=""></a>
-								</article>
+  .academic { padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  .academic:last-child { border-bottom: none; }
+  .academic .title { font-weight: 600; color: var(--ink); font-family: 'Source Serif 4', serif; font-size: 1.05rem; }
+  .academic p { margin: 6px 0 0; max-width: 62ch; color: var(--text); }
+  .academic .who { color: var(--text-dim); font-size: 0.88rem; }
 
-								<article class="item thumb span-1">
-									<h2><a href="https://github.com/Priya-yadav-077/Web-scrapping-using-Amazon.git" target="_blank">
-										Amazon data-Web scrapping (Python)
-									</a></h2>
-									<a href="images/thumbs/Screenshot 2025-02-09 162019.png" class="image"><img src="images/thumbs/Screenshot 2025-02-09 162019.png" alt=""></a>
-								</article>
-								
-								<article class="item thumb span-3">
-									<h2><a href="https://github.com/Priya-yadav-077/BMI-calculator-and-Automatic-File-sorter.git" target="_blank">
-										BMI Calculator And Automatic File Sorter (Python)
-									</a>
-								    </h2>
-									<a href="images/thumbs/Screenshot 2025-02-09 161728.png" class="image"><img src="images/thumbs/Screenshot 2025-02-09 161728.png" alt=""></a>
-								</article>
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 700px) { .skills-grid { grid-template-columns: 1fr; } }
+  .skills-grid .group .label { font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .skills-grid .group p { margin: 0; color: var(--text-dim); font-size: 0.93rem; }
 
-								<article class="item thumb span-2">
-									<h2><a href="https://github.com/Priya-yadav-077/Bike-Purchase-Dashboard-using-Excel.git" target="_blank">
-										Excel  Bike Purchase Dashboard (Excel) 
-									</a></h2>
-									<a href="images/thumbs/excel.png" class="image"><img src="images/thumbs/excel.png" alt=""></a>
-								</article>
+  footer.site { padding: 40px 0 60px; }
+  footer.site .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: baseline; }
+  footer.site .links { display: flex; gap: 22px; font-size: 0.93rem; }
+  footer.site .copy { color: var(--text-dim); font-size: 0.85rem; }
+</style>
+</head>
+<body>
 
-								<article class="item thumb span-1">
-									<h2>
-										<a href="https://github.com/Priya-yadav-077/Job-Survey-Breakdown-iusing-PowerbI/tree/main" target="_blank">
-											Power BI Survey Report (Power BI)
-										</a>
-									</h2>
-									<a href="images/thumbs/pb pro.png" class="image">
-										<img src="images/thumbs/pb pro.png" alt="Power BI Survey Report">
-									</a>
-								</article>
+<header class="site">
+  <div class="wrap">
+    <div class="mark">Priya Yadav</div>
+    <nav class="site-links">
+      <a href="#work">Work</a>
+      <a href="#academic">Academic</a>
+      <a href="#skills">Skills</a>
+      <a href="mailto:rpsinghyadav2020@gmail.com">Email</a>
+    </nav>
+  </div>
+</header>
 
-								<article class="item thumb span-2">
-									<h2>
-										<a href="https://public.tableau.com/app/profile/priya.yadav8151/viz/Tableauproject_17390373417820/Dashboard1?publish=yes"target="blank">
-										 	Airbnb Buisness Overview (Tableau)
-										</a>
-									</h2>
-									<a href="images/thumbs/tab2.png" class="image"><img src="images/thumbs/tab2.png" alt=""></a>
-								</article>
+<section class="hero" style="border-top:none; padding-top:64px;">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>I study how machines model language — and where that modeling still breaks down.</h1>
+        <p class="role">Master's student in Computational Linguistics at Heidelberg University, working as a Data Center Management student assistant at SAP SE. Research interest in LLM evaluation and temporal reasoning in language models.</p>
+        <div class="cta-row">
+          <a href="#work">See the work ↓</a>
+          <a href="C:\Users\HP\Downloads\portfolio\resumee (1).pdf" download>Download Resume</a>
+          <a href="https://github.com/Priya-yadav-077">GitHub</a>
+          <a href="https://www.linkedin.com/in/priya-yadav033/">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section id="work">
+  <div class="wrap">
+    <div class="heading">
+      <h2>Selected work</h2>
+    </div>
 
-								
+    <div class="case">
+      <div>
+        <div class="title">Attention Mechanism Study — GLA vs. Linformer vs. Transformer</div>
+        <div class="stack">PyTorch, nanoGPT</div>
+      </div>
+      <div class="body">
+        <p>Implemented and benchmarked three attention mechanisms — standard/FlashAttention, Linformer, and Gated Linear Attention (GLA) — inside Karpathy's nanoGPT (124M params) on character-level Shakespeare. The standard baseline generalized normally; Linformer's dramatically lower loss turned out to be overfitting on the small dataset rather than a genuine improvement.</p>
+        <p>GLA diverged to NaN; I traced this to an FP16 precision failure in its cumulative log-gate term, confirming the paper's own claim that hardware-aware CUDA kernels — out of scope for this assignment — are required to train it stably.</p>
+        <div class="links"><a href="https://github.com/Priya-yadav-077/GlA-Project-Report.git">View on GitHub</a></div>
+      </div>
+    </div>
 
-							</div>
+    <div class="case">
+      <div>
+        <div class="title">Multimodal RAG Pipeline</div>
+        <div class="stack">LangChain, ChromaDB, Llama 8B/11B</div>
+      </div>
+      <div class="body">
+        <p>A retrieval pipeline that extracts structured insight from text, tables, and images inside PDFs, embedding document summaries for faster and more accurate retrieval.</p>
+        <div class="links"><a href="https://colab.research.google.com/drive/1q62C8IZygxg1CvdtGWerVFqMmlnLwFW0?usp=sharing">Open in Colab</a></div>
+      </div>
+    </div>
 
-						<!-- Items -->
-							<div class="items">
+    <div class="case">
+      <div>
+        <div class="title">Cold Email Generator</div>
+        <div class="stack">LangChain, ChromaDB, Streamlit</div>
+      </div>
+      <div class="body">
+        <p>A RAG pipeline that parses a job description into structured fields and matches it against a personal project knowledge base to draft a targeted outreach email, shipped as an interactive Streamlit app.</p>
+        <div class="links"><a href="https://github.com/Priya-yadav-077/Cold-Email-Generator-Gen-AI">View on GitHub</a></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-								<article class="item thumb span-2">
-									<h2>
-										<a href="https://github.com/Priya-yadav-077/Multimodal-RAG-Retrieval-Augmented-Generation-.git" target="_blank">
-											Multimodal-RAG-Retrieval-Augmented-Generation (Langchain,Chromadb)
-										</a>
-										</h2>
-									<a href="images/thumbs/rag.png" class="image"><img src="images/thumbs/rag.png" alt=""></a>
-								</article>
+<section id="academic">
+  <div class="wrap narrow">
+    <div class="heading"><h2>Academic work</h2></div>
 
+    <div class="academic">
+      <div class="title">Master's thesis — in progress</div>
+      <div class="who">Supervised by Prof. Stefan Riezler, Heidelberg University</div>
+      <p>Investigating clinical out-of-domain generalization across hospital datasets (MIMIC-IV → UMM) under distribution shift and label noise (algorithmic Sepsis-3 rules vs. expert clinician annotations) using domain adaptation, fine-tuning, and fusion training.</p>
+    </div>
 
-								
-								<article class="item thumb span-1">
-									<h2>
-										<a href="https://github.com/Priya-yadav-077/Crypto-Website-Automatic-data-extraction-.git" target="_blank">
-											Crypto Website Data Analysis (Public API - Python)
-										</a>
-										</h2>
-									<a href="images/thumbs/Screenshot 2025-02-09 161555.png" class="image"><img src="images/thumbs/Screenshot 2025-02-09 161555.png" alt=""></a>
-								</article>
+    <div class="academic">
+      <div class="title">Term paper — Navigating the symbolic gap in LLM temporal reasoning</div>
+      <div class="who">Prof. Michael Herweg, Heidelberg University</div>
+      <p>Literature review arguing for hybrid neuro-symbolic architectures to close LLMs' temporal-reasoning gaps — synthesizing benchmark evidence across implicit reasoning, multi-hop fragility, and knowledge-reservoir failure modes.</p>
+    </div>
 
-								
+    <div class="academic">
+      <div class="title">Reproducibility study — PromptEval (Polo et al., 2024)</div>
+      <div class="who">Course project, Heidelberg University</div>
+      <p>Reproduced the paper's core evaluation results on the university SLURM cluster, identified a data-leakage bug from non-deterministic file ordering, and ran a novel ablation removing question-level features.</p>
+    </div>
+  </div>
+</section>
 
-								<article class="item thumb span-2">
-									<h2><a href="https://github.com/Priya-yadav-077/Data-Cleaning-and-EDA.git" target="_blank">
-										Data Analysis (EDA & Visualization - Python)
-									</a></h2>
-									<a href="images/thumbs/Screenshot 2025-02-09 162105.png" class="image"><img src="images/thumbs/Screenshot 2025-02-09 162105.png" alt=""></a>
-								</article>
+<section id="skills">
+  <div class="wrap">
+    <div class="heading"><h2>Skills</h2></div>
+    <div class="skills-grid">
+      <div class="group">
+        <div class="label">AI/ML &amp; Generative AI</div>
+        <p>Machine Learning, Deep Learning, Generative AI, LLMs, LLM Evaluation, Agentic AI, RAG, Prompt Engineering, Tool Orchestration, Fine-tuning</p>
+      </div>
+      <div class="group">
+        <div class="label">AI/ML Tools &amp; Frameworks</div>
+        <p>Python, PyTorch, Scikit-learn, LangChain, ChromaDB, Claude Code</p>
+      </div>
+      <div class="group">
+        <div class="label">SAP Technologies</div>
+        <p>SAP Joule, SAP Analytics Cloud (SAC), Service-Based Pricing (SBP)</p>
+      </div>
+      <div class="group">
+        <div class="label">Data &amp; Analytics</div>
+        <p>SQL, SQLite, Excel, VBA, Power BI, Tableau</p>
+      </div>
+      <div class="group">
+        <div class="label">Languages</div>
+        <p>English (C1, Fluent) · German (B1, Improving) · Hindi (Native)</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-								<article class="item thumb span-2">
-									<h2><a href="https://doi.org/10.1109/ICCPCT58313.2023.10244998" target="_blank">
-										A Study on Social Media Sentimental Analysis in Hindi Language-Research paper
-									</a></h2>
-									<a href="images/thumbs/Screenshot 2025-02-12 112728.png" class="image"><img src="images/thumbs/Screenshot 2025-02-12 112728.png" alt=""></a>
-								</article>
+<footer class="site">
+  <div class="wrap">
+    <div class="row">
+      <div class="links">
+        <a href="mailto:rpsinghyadav2020@gmail.com">rpsinghyadav2020@gmail.com</a>
+        <a href="https://www.linkedin.com/in/priya-yadav033/">LinkedIn</a>
+        <a href="https://github.com/Priya-yadav-077">GitHub</a>
+      </div>
+      <div class="copy">Heidelberg, Germany</div>
+    </div>
+  </div>
+</footer>
 
-
-								
-
-
-								<article class="item thumb span-3">
-									<h2><a href="https://doi.org/10.1109/IEMENTech60402.2023.10423531" target="_blank">
-										Solar Flare Prediction using Hybrid CNN-Model-Research Paper
-									</a>
-								    </h2>
-									<a href="images/thumbs/Screenshot 2025-02-12 112516.png" class="image"><img src="images/thumbs/Screenshot 2025-02-12 112516.png" alt=""></a>
-								</article>
-
-								<article class="item thumb span-1">
-									<h2><a href="https://doi.org/10.1109/IEMENTech60402.2023.10423429" target="_blank">
-										A study on Customized Face Generator Using Generative Adversial Networks(GANs)-Research Paper
-									</a></h2>
-									<a href="images/thumbs/Screenshot 2025-02-12 112602.png" class="image"><img src="images/thumbs/Screenshot 2025-02-12 112602.png" alt=""></a>
-								</article>
-
-								<article class="item thumb span-2">
-									<h2><a href="https://doi.org/10.1109/ICCPCT58313.2023.10244998" target="_blank">
-										A Study on Social Media Sentimental Analysis in Hindi Language-Research paper
-									</a></h2>
-									<a href="images/thumbs/Screenshot 2025-02-12 112728.png" class="image"><img src="images/thumbs/Screenshot 2025-02-12 112728.png" alt=""></a>
-								</article>
-
-								<article class="item thumb span-3">
-									<h2><a href="https://github.com/Priya-yadav-077/Web-scrapping.git" target="_blank">
-										Top companies data-Web scrapping (Python)
-									</a>
-								    </h2>
-									<a href="images/thumbs/Screenshot 2025-02-09 161941.png" class="image"><img src="images/thumbs/Screenshot 2025-02-09 161941.png" alt=""></a>
-								</article>
-
-
-								<article class="item thumb span-2">
-									<h2><a href="Certificatesss.pdf" target="_blank">
-										Certificates
-									</a></h2>
-									<a href="images/thumbs/02.jpg" class="image"><img src="images/thumbs/02.jpg " alt=""></a>
-								</article>
-
-								
-
-								
-
-							</div>
-
-					</section>
-
-					<style>
-						/* Container for the sections */
-						.sections-container {
-						  display: flex;
-						  justify-content: space-between;
-						  gap: 20px; /* Adds space between the sections */
-						}
-					  
-						/* Style for the individual sections */
-						section {
-						  flex: 1;
-						}
-					  </style>
-					  
-					  <!-- Footer -->
-					  <section class="sections-container">
-						<!-- Summary Section -->
-						<section>
-						  <h3>Summary</h3>
-						  <ul style="list-style-type: none; padding: 0;">
-							
-							<li>💡 Dynamic professional with expertise in data analysis, machine learning, and AI.</li>
-							<li>📊 Skilled in problem-solving, data-driven decision-making, and collaboration</li>
-							<li>🛠️  Passionate about leveraging data insights to drive business growth and support 
-								             strategic initiatives</li>
-							<li>🎯 Dedicated to leveraging data-driven strategies to optimize business processes.</li>
-						  </ul>
-						</section>
-					  
-						<!-- Education Section -->
-						<section>
-						  <h3>Education</h3>
-						  <p><strong>Ruprecht Karl Heidelberg University</strong> - Heidelberg, Germany <br>
-						  Master in Computational Linguistics (Oct 2024 - Present)</p>
-					  
-						  <p><strong>Chandigarh University</strong> - Mohali, India <br>
-						  Bachelor of Engineering in Computer Science & Engineering (Aug2020-June 2024) - GPA: 1.9</p>
-						</section>
-
-						<section>
-							<h3>Skills</h3>
-							<p><strong>Technical Skills:</strong> Langchain, ChromaDB, Python, SQL, Machine Learning, ETL,
-								Web Scraping, NLP, Jira, Confluence, Power BI, Tableau, Excel, \LaTeX</p>
-							<p><strong>Soft Skills:</strong> Effective Communication, Analytical Thinking, Organizational Skills, Teamwork, Inquisitive.</p>
-						  </section>
-					  </section>
-					  
-				
-						<section>
-							<ul class="icons">
-								<li><a href="https://www.linkedin.com/in/priya-yadav033/" class="icon brands fa-linkedin"><span class="label">linkedin</span></a></li>
-								<li><a href="https://github.com/Priya-yadav-077" class="icon brands fa-github"><span class="label">github</span></a></li>
-								<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							</ul>
-							
-						</section>
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>
